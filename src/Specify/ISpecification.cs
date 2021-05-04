@@ -10,12 +10,10 @@ namespace Specify {
 
         public bool IsSatisfiedBy(A item);
 
-        public ISpecification<A> Or(ISpecification<A> other) {
-            return new GeneralSpecification<A>((it) => this.IsSatisfiedBy(it) || other.IsSatisfiedBy(it));
-        }
+        public ISpecification<A> Or(ISpecification<A> other) =>
+            new GeneralSpecification<A>((it) => this.IsSatisfiedBy(it) || other.IsSatisfiedBy(it));
 
-        public ISpecification<A> And(ISpecification<A> other) {
-            return new GeneralSpecification<A>((it) => this.IsSatisfiedBy(it) && other.IsSatisfiedBy(it));
-        }
+        public ISpecification<A> And(ISpecification<A> other) =>
+            new GeneralSpecification<A>((it) => this.IsSatisfiedBy(it) && other.IsSatisfiedBy(it));
     }
 }
